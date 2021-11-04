@@ -1,0 +1,29 @@
+{
+    "name": "brunoribeiro-lab/class-query",
+    "type": "library",
+    "description": "This is a script to make life easier for programmers beginners, medium or advanced. This script connects to the database using mysqli method check out the README.md there has some usage examples.",
+    "keywords": ["Easy Class Query.", "php class query"],
+    "homepage": "http://github.com/brunoribeiro-lab/class-query",
+    "license": "MIT",
+    "authors": [{
+            "name": "Bruno Ribeiro",
+            "email": "bruno.espertinho@gmail.com"
+        },{
+            "name": "Zachbor",
+            "email": "zachborboa@gmail.com"
+    }],
+    "require": {
+        "php": ">=5.3.0"
+    },
+    "autoload": {
+        "classmap": [
+            "lib/Query.php",
+            "lib/Query_src/Config.php",
+            "lib/Query_src/Insert.php",
+            "lib/Query_src/Language.php",
+            "lib/Query_src/Pagination.php",
+            "lib/Query_src/Run.php",
+            "lib/Query_src/Where.php"
+        ]
+    }
+}
