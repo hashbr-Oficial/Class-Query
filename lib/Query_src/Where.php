@@ -317,7 +317,7 @@ class Where extends Pagination {
             return (int) $v;
 
         if (is_string(strval($v)))
-            return "'{$v}'";
+            return sprintf("'%s'", str_replace("'", "\'", $v));
 
         return $v;
     }
