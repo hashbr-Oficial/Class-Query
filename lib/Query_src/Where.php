@@ -99,7 +99,7 @@ class Where extends Pagination {
                 $where = $this->where_like_or;
             }
         }
-        return count($where) > 0 ? implode(" OR \n\t", $where) : (!is_array($where) ? $where : '');
+        return count($where) > 0 ? sprintf("(%s)", implode(" OR \n\t", $where)) : (!is_array($where) ? $where : '');
     }
 
     private function get_where_like_before() {
@@ -305,16 +305,11 @@ class Where extends Pagination {
      * @return mixed
      */
     protected function safeValue($v) {
-        if (is_array($v)) {
-            error_log("Exceção da regra");
-            error_log(json_encode($v, JSON_PRETTY_PRINT));
-            error_log(json_encode($this, JSON_PRETTY_PRINT));
-        }
         if (is_bool($v))
             return (int) $v;
 
         if (is_numeric($v))
-            return (int) $v;
+            return str_replace(",", ".", $v);
 
         if (is_string(strval($v)))
             return sprintf("'%s'", str_replace("'", "\'", $v));
