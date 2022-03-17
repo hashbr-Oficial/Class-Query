@@ -50,15 +50,15 @@ class Where extends Pagination {
         if (!empty($where = $this->get_where_like_or()))
             $wheres[] = $where;
 
-        if (!empty($where = $this->get_where_less_than_or_equal_to()))
-            $wheres[] = $where;
-
         if (!empty($where = $this->get_where_greater_than_or_equal_to()))
             $wheres[] = $where;
 
         if (!empty($where = $this->get_where_greater_than()))
             $wheres[] = $where;
-
+        
+        if (!empty($where = $this->get_where_less_than_or_equal_to()))
+            $wheres[] = $where;
+        
         if (!empty($where = $this->get_where_less_than()))
             $wheres[] = $where;
 
@@ -166,7 +166,7 @@ class Where extends Pagination {
         $where = [];
         if (!empty($this->where_less_than_or_equal_to)) {
             if (is_array($this->where_less_than_or_equal_to)) {
-                foreach ($this->where_equal_to as $k => $v) {
+                foreach ($this->where_less_than_or_equal_to as $k => $v) {
                     $kk = preg_match("/\./", $k) ? $k : "`{$k}`";
                     $where[] = "{$kk} <= {$this->safeValue($v)}";
                 }
