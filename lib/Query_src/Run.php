@@ -193,7 +193,7 @@ EOF;
                 foreach ($this->order_by as $order) {
                     $parts = explode(" ", $order);
                     if (!empty($parts[0]) && !empty($parts[1]))
-                        $newList[] = "`{$parts[0]}` {$parts[1]}";
+                        $newList[] = "{$parts[0]} {$parts[1]}";
                 }
                 $order_by = sprintf("\n ORDER BY %s", implode(",", $newList));
             } else {
